@@ -1,0 +1,18 @@
+{
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    // May cai nay moi nguoi khac nhau nen hay comment di de khong bi loi
+    // CUA XUAN DAT
+    "d:\\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\\lib\\dt.jar",
+    "d:\\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\\lib\\jconsole.jar",
+    "d:\\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\\lib\\sa-jdi.jar",
+    "d:\\java-1.8.0-openjdk-1.8.0.392-1.b08.redhat.windows.x86_64\\lib\\tools.jar",
+    "d:\\mysql-connector-j-8.3.0\\mysql-connector-j-8.3.0.jar"
+
+    // CUA QUY
+
+    // CUA CHAU
+
+    //CUA HUNG
+  ]
+}
