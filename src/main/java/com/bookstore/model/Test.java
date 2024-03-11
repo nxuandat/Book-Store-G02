@@ -1,3 +1,5 @@
+package main.java.com.bookstore.model;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

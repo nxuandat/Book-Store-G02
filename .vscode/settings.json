@@ -1,4 +1,6 @@
 {
+  "java.project.sourcePaths": ["src"],
+  "java.project.outputPath": "bin",
   "java.project.referencedLibraries": [
     "lib/**/*.jar",
     // May cai nay moi nguoi khac nhau nen hay comment di de khong bi loi
