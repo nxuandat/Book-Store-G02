@@ -1,4 +1,4 @@
-package main.java.com.bookstore.model;
+package main.java.com.example.model;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

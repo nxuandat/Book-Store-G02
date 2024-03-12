@@ -1,4 +1,4 @@
-package main.java.com.bookstore.model;
+package main.java.com.example.model;
 
 public class Publisher {
     private int publisherID;
