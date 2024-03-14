@@ -3,13 +3,28 @@ package main.java.com.example.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
 public class MySQLConnector {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/dbbook";
-    private static final String USER = "root";
-    private static final String PASSWORD = "xdn2003";
+    private static String JDBC_URL;
+    private static String USER;
+    private static String PASSWORD;
 
     private static Connection connection;
+
+    static {
+        try {
+            Properties props = new Properties();
+            props.load(new FileInputStream(".env"));
+            JDBC_URL = props.getProperty("JDBC_URL");
+            USER = props.getProperty("DB_USER");
+            PASSWORD = props.getProperty("DB_PASSWORD");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static Connection getConnection() {
         try {
