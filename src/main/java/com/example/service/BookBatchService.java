@@ -1,7 +1,7 @@
 package main.java.com.example.service;
 
-import com.example.dao.BookBatchDao;
-import com.example.model.BookBatch;
+import main.java.com.example.dao.BookBatchDao;
+import main.java.com.example.model.BookBatch;
 
 import java.util.List;
 

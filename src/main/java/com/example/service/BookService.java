@@ -1,7 +1,7 @@
 package main.java.com.example.service;
 
-import com.example.dao.BookDao;
-import com.example.model.Book;
+import main.java.com.example.dao.BookDao;
+import main.java.com.example.model.Book;
 
 import java.util.List;
 
@@ -58,7 +58,7 @@ public class BookService {
         return bookDao.searchBooksByTitle(keyword);
     }
 
- // Lấy danh sách tất cả sách được sắp xếp theo tiêu chí
+    // Lấy danh sách tất cả sách được sắp xếp theo tiêu chí
     public List<Book> getAllBooksSortedByTitle(String sortOrder) {
         return bookDao.getAllBooksSortedByTitle(sortOrder);
     }

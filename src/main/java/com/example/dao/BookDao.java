@@ -1,14 +1,14 @@
 package main.java.com.example.dao;
 
-import com.example.model.Book;
-import com.example.util.MySQLConnector;
+import main.java.com.example.model.Book;
+import main.java.com.example.util.MySQLConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
+// import java.util.Date;
 import java.util.List;
 
 public class BookDao {
@@ -19,8 +19,8 @@ public class BookDao {
         String query = "SELECT * FROM Books";
 
         try (Connection connection = MySQLConnector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query);
-             ResultSet resultSet = preparedStatement.executeQuery()) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
                 Book book = resultSetToBook(resultSet);
@@ -46,7 +46,7 @@ public class BookDao {
         String query = "INSERT INTO Books (Title, ISBN, CategoryID, PublisherID, AuthorID, NumberOfPages, Size, PublicationDate, IsActive) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection connection = MySQLConnector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             setBookParameters(preparedStatement, book);
 
@@ -66,7 +66,7 @@ public class BookDao {
         String query = "UPDATE Books SET Title = ?, ISBN = ?, CategoryID = ?, PublisherID = ?, AuthorID = ?, NumberOfPages = ?, Size = ?, PublicationDate = ?, IsActive = ? WHERE BookID = ?";
 
         try (Connection connection = MySQLConnector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             setBookParameters(preparedStatement, book);
             preparedStatement.setInt(10, book.getBookID());
@@ -105,13 +105,13 @@ public class BookDao {
         return false;
     }
 
- // Tìm kiếm sách theo tên sách
+    // Tìm kiếm sách theo tên sách
     public List<Book> searchBooksByTitle(String keyword) {
         List<Book> books = new ArrayList<>();
         String query = "SELECT * FROM Books WHERE Title LIKE ?";
 
         try (Connection connection = MySQLConnector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setString(1, "%" + keyword + "%");
 
@@ -128,15 +128,15 @@ public class BookDao {
 
         return books;
     }
-    
- // Lấy danh sách tất cả sách được sắp xếp theo tiêu chí
+
+    // Lấy danh sách tất cả sách được sắp xếp theo tiêu chí
     public List<Book> getAllBooksSortedByTitle(String sortOrder) {
         List<Book> books = new ArrayList<>();
         String query = "SELECT * FROM Books ORDER BY Title " + ("A-Z".equalsIgnoreCase(sortOrder) ? "ASC" : "DESC");
 
         try (Connection connection = MySQLConnector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query);
-             ResultSet resultSet = preparedStatement.executeQuery()) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                ResultSet resultSet = preparedStatement.executeQuery()) {
 
             while (resultSet.next()) {
                 Book book = resultSetToBook(resultSet); // Use the existing function
@@ -184,7 +184,7 @@ public class BookDao {
         String query = "UPDATE Books SET IsActive = ? WHERE BookID = ?";
 
         try (Connection connection = MySQLConnector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setBoolean(1, isActive);
             preparedStatement.setInt(2, bookId);

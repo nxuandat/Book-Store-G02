@@ -1,7 +1,7 @@
 package main.java.com.example.dao;
 
-import com.example.model.BookBatch;
-import com.example.util.MySQLConnector;
+import main.java.com.example.model.BookBatch;
+import main.java.com.example.util.MySQLConnector;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,7 +18,7 @@ public class BookBatchDao {
         String query = "SELECT * FROM BookBatches WHERE BookID = ?";
 
         try (Connection connection = MySQLConnector.getConnection();
-             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query)) {
 
             preparedStatement.setInt(1, bookId);
             ResultSet resultSet = preparedStatement.executeQuery();
