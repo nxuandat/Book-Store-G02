@@ -79,4 +79,81 @@ public class BookCategoryDao {
 
         return false;
     }
+
+    // Cập nhật thông tin thể loại sách
+    public boolean updateCategory(BookCategory category) {
+        String query = "UPDATE BookCategories SET CategoryName = ?, IsActive = ? WHERE CategoryID = ?";
+
+        try (Connection connection = MySQLConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setString(1, category.getCategoryName());
+            preparedStatement.setBoolean(2, category.isActive());
+            preparedStatement.setInt(3, category.getCategoryID());
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    // Tắt/ẩn danh mục sách
+    public boolean deactivateCategory(int categoryId) {
+        return updateCategoryStatus(categoryId, false);
+    }
+
+    // Bật/hiển thị danh mục sách
+    public boolean activateCategory(int categoryId) {
+        return updateCategoryStatus(categoryId, true);
+    }
+
+    private boolean updateCategoryStatus(int categoryId, boolean isActive) {
+        String query = "UPDATE BookCategories SET IsActive = ? WHERE CategoryID = ?";
+
+        try (Connection connection = MySQLConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setBoolean(1, isActive);
+            preparedStatement.setInt(2, categoryId);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    //lay sach bang id
+    public BookCategory getCategoryById(int categoryId) {
+        BookCategory category = null;
+        String query = "SELECT * FROM BookCategories WHERE CategoryID = ?";
+
+        try (Connection connection = MySQLConnector.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, categoryId);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                category = new BookCategory();
+                category.setCategoryID(resultSet.getInt("CategoryID"));
+                category.setCategoryName(resultSet.getString("CategoryName"));
+                category.setActive(resultSet.getBoolean("IsActive"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return category;
+    }
 }
