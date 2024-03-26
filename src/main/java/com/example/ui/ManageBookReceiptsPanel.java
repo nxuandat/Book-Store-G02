@@ -1,15 +1,15 @@
-package main.java.com.example.ui;
+package com.example.ui;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
-import main.java.com.example.model.Book;
-import main.java.com.example.model.BookBatch;
-import main.java.com.example.model.BookReceipt;
-import main.java.com.example.model.BookReceiptDetail;
-import main.java.com.example.service.BookReceiptService;
-import main.java.com.example.service.BookService;
+import com.example.model.Book;
+import com.example.model.BookBatch;
+import com.example.model.BookReceipt;
+import com.example.model.BookReceiptDetail;
+import com.example.service.BookReceiptService;
+import com.example.service.BookService;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -49,7 +49,7 @@ public class ManageBookReceiptsPanel extends JPanel {
     private List<Book> availableBooks;
     
     private JButton addBatchButton;
-    //private AddBatchDialog addBatchDialog;
+    private AddBatchDialog addBatchDialog;
     
     public static List<BookBatch> batchList = new ArrayList<BookBatch>();;
     
@@ -64,8 +64,11 @@ public class ManageBookReceiptsPanel extends JPanel {
         setLayout(new BorderLayout());
 
         // Tiêu đề ở phía bắc
-        JPanel topPanel = new JPanel(new FlowLayout());
-        topPanel.add(new JLabel("Phiếu nhập Sách"));
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(new FlowLayout());
+        JLabel titleLabelBookReceipts = new JLabel("Phiếu Nhập Sách");
+        titleLabelBookReceipts.setFont(new Font("Arial", Font.BOLD, 24));
+        titlePanel.add(titleLabelBookReceipts);
 
         // panel trung tâm
         JPanel centerPanel = new JPanel(new BorderLayout());
@@ -127,7 +130,7 @@ public class ManageBookReceiptsPanel extends JPanel {
         rightOfInforReciptPanel.add(lblPriceTotalID);
         rightOfInforReciptPanel.add(receipPriceTotal);
 
-        add(topPanel, BorderLayout.NORTH);
+        add(titlePanel, BorderLayout.NORTH);
 
         add(centerPanel, BorderLayout.CENTER);
 
@@ -225,11 +228,11 @@ public class ManageBookReceiptsPanel extends JPanel {
         });
     }
     
-    // private void openAddBatchDialog(BookReceiptDetail detail) {
-    //     AddBatchDialog addBatchDialog = new AddBatchDialog((Frame) SwingUtilities.getWindowAncestor(this), detail);
-    //     addBatchDialog.setVisible(true);
+    private void openAddBatchDialog(BookReceiptDetail detail) {
+        AddBatchDialog addBatchDialog = new AddBatchDialog((Frame) SwingUtilities.getWindowAncestor(this), detail);
+        addBatchDialog.setVisible(true);
         
-    // }
+    }
 
     private void showBookSelectionDialog() {
         bookSelectionDialog = new JDialog((Frame) SwingUtilities.getWindowAncestor(this), "Chọn Sách", true);
@@ -325,8 +328,8 @@ public class ManageBookReceiptsPanel extends JPanel {
             // Cập nhật bảng hiển thị
             updateTable();
             
-        //  // Mở hộp thoại thêm lô sách với thông tin chi tiết           
-        //     openAddBatchDialog(detail);    
+         // Mở hộp thoại thêm lô sách với thông tin chi tiết           
+            openAddBatchDialog(detail);    
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -439,4 +442,3 @@ public class ManageBookReceiptsPanel extends JPanel {
     }
 
 }
-
