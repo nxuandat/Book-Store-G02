@@ -1,10 +1,10 @@
-package com.example.ui;
+package main.java.com.example.ui;
 
-import com.example.model.BookBatch;
-import com.example.model.Customer;
-import com.example.model.Order;
-import com.example.model.OrderDetail;
-import com.example.service.OrderService;
+import main.java.com.example.model.BookBatch;
+import main.java.com.example.model.Customer;
+import main.java.com.example.model.Order;
+import main.java.com.example.model.OrderDetail;
+import main.java.com.example.service.OrderService;
 
 import javax.swing.*;
 import javax.swing.border.Border;

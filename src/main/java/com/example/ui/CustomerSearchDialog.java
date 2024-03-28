@@ -1,7 +1,7 @@
 package main.java.com.example.ui;
 
-import main.java.example.model.Customer;
-import main.java.example.service.CustomerService;
+import main.java.com.example.model.Customer;
+import main.java.com.example.service.CustomerService;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

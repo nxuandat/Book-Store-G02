@@ -1,15 +1,15 @@
-package com.example.ui;
+package main.java.com.example.ui;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
-import com.example.model.Book;
-import com.example.model.BookBatch;
-import com.example.model.BookReceipt;
-import com.example.model.BookReceiptDetail;
-import com.example.service.BookReceiptService;
-import com.example.service.BookService;
+import main.java.com.example.model.Book;
+import main.java.com.example.model.BookBatch;
+import main.java.com.example.model.BookReceipt;
+import main.java.com.example.model.BookReceiptDetail;
+import main.java.com.example.service.BookReceiptService;
+import main.java.com.example.service.BookService;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -1,7 +1,7 @@
-package com.example.ui;
+package main.java.com.example.ui;
 
-import com.example.model.Order;
-import com.example.service.OrderService;
+import main.java.com.example.model.Order;
+import main.java.com.example.service.OrderService;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
