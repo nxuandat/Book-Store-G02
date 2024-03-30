@@ -49,7 +49,7 @@ public class ManageBookReceiptsPanel extends JPanel {
     private List<Book> availableBooks;
     
     private JButton addBatchButton;
-    private AddBatchDialog addBatchDialog;
+    //private AddBatchDialog addBatchDialog;
     
     public static List<BookBatch> batchList = new ArrayList<BookBatch>();;
     
@@ -228,11 +228,11 @@ public class ManageBookReceiptsPanel extends JPanel {
         });
     }
     
-    private void openAddBatchDialog(BookReceiptDetail detail) {
-        AddBatchDialog addBatchDialog = new AddBatchDialog((Frame) SwingUtilities.getWindowAncestor(this), detail);
-        addBatchDialog.setVisible(true);
+    // private void openAddBatchDialog(BookReceiptDetail detail) {
+    //     AddBatchDialog addBatchDialog = new AddBatchDialog((Frame) SwingUtilities.getWindowAncestor(this), detail);
+    //     addBatchDialog.setVisible(true);
         
-    }
+    // }
 
     private void showBookSelectionDialog() {
         bookSelectionDialog = new JDialog((Frame) SwingUtilities.getWindowAncestor(this), "Chọn Sách", true);
@@ -328,8 +328,8 @@ public class ManageBookReceiptsPanel extends JPanel {
             // Cập nhật bảng hiển thị
             updateTable();
             
-         // Mở hộp thoại thêm lô sách với thông tin chi tiết           
-            openAddBatchDialog(detail);    
+        //  // Mở hộp thoại thêm lô sách với thông tin chi tiết           
+        //     openAddBatchDialog(detail);    
             
         } catch (Exception e) {
             e.printStackTrace();
