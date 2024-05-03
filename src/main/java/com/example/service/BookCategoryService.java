@@ -1,8 +1,9 @@
 package main.java.com.example.service;
 
-import java.util.List;
 import main.java.com.example.dao.BookCategoryDao;
 import main.java.com.example.model.BookCategory;
+
+import java.util.List;
 
 public class BookCategoryService {
 
@@ -62,4 +63,16 @@ public class BookCategoryService {
         return bookCategoryDao.getCategoryById(categoryId);
     }
     
+    public List<BookCategory> searchCategories(String keyword) {
+        return bookCategoryDao.searchCategories(keyword);
+    }
+
+    public List<BookCategory> sortCategories(String sortOrder) {
+        return bookCategoryDao.sortCategories(sortOrder);
+    }
+    
+ // Lấy toàn bộ danh mục sách có trạng thái hoạt động là true
+    public List<BookCategory> getAllActiveCategories() {
+        return bookCategoryDao.getAllActiveCategories();
+    }
 }
