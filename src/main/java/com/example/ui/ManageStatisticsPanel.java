@@ -1,4 +1,4 @@
-package com.example.ui;
+package main.java.com.example.ui;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -10,8 +10,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import com.example.model.Order;
-import com.example.service.OrderService;
+import main.java.com.example.model.Order;
+import main.java.com.example.service.OrderService;
 import com.toedter.calendar.JDateChooser;
 
 public class ManageStatisticsPanel extends JPanel implements ActionListener {
