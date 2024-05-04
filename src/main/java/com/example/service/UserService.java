@@ -1,16 +1,21 @@
-package main.java.com.example.service;
+package com.example.service;
 
 import java.util.List;
 
-import main.java.com.example.dao.UserDao;
-// import main.java.com.example.model.Role;
-import main.java.com.example.model.User;
+import com.example.dao.UserDao;
+import com.example.model.Role;
+import com.example.model.User;
 
 public class UserService {
     private UserDao userDao;
 
     public UserService() {
         this.userDao = new UserDao();
+    }
+
+    //Đăng kí người dùng
+    public boolean register(User user) {
+        return userDao.register(user);
     }
 
     // Thêm một người dùng mới
@@ -47,8 +52,8 @@ public class UserService {
     public User checkLogin(String username, String password) {
         return userDao.getUserByUsernameAndPassword(username, password);
     }
-
-    // Tìm kiếm người dùng theo tên
+    
+ // Tìm kiếm người dùng theo tên
     public List<User> searchUsers(String keyword) {
         return userDao.searchUsersByFullName(keyword);
     }
@@ -56,8 +61,8 @@ public class UserService {
     public List<User> sortUsers(String sortOrder) {
         return userDao.sortUsers(sortOrder);
     }
-
-    // Đổi mật khẩu người dùng theo ID và kiểm tra mật khẩu gốc
+    
+ // Đổi mật khẩu người dùng theo ID và kiểm tra mật khẩu gốc
     public boolean changePassword(int userID, String oldPassword, String newPassword) {
         return userDao.changePassword(userID, oldPassword, newPassword);
     }
